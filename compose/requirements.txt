@@ -1,0 +1,7 @@
+Django
+djangorestframework
+psycopg2-binary
+django-import-export
+gunicorn
+whitenoise
+dj-database-url
