@@ -1,22 +1,15 @@
-FROM python:3.8-alpine
+FROM python:3.8-slim-buster
 
 ENV PYTHONUNBUFFERED 1
-ENV DEBUG 0
-
-ARG BUILD_DEPS="build-dependencies build-base gcc libffi-dev libgcc zlib-dev linux-headers python3-dev"
-ARG RUNTIME_DEPS="libxml2-dev postgresql-dev libxslt-dev jpeg-dev"
 
 WORKDIR /usr/src/opt
 COPY requirements.txt .
 
-RUN apk update \
-    && apk add --no-cache --virtual ${BUILD_DEPS} \
-    && apk add --no-cache ${RUNTIME_DEPS} \
+RUN apt-get update \
+    && apt-get install --yes libgdal-dev netcat \
     && pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
-    && apk del ${BUILD_DEPS} \
-    && apk add bash \
-    && adduser -D webserver
+    && adduser --disabled-password webserver
 
 WORKDIR /usr/src/bin
 COPY ./compose/bin .
