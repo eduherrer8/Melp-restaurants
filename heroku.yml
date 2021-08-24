@@ -1,0 +1,13 @@
+build:
+  docker:
+    web: Dockerfile
+
+
+release:
+  image: web
+  command:
+    - python manage.py collectstatic --noinput
+
+run:
+  web: bash -c /usr/src/bin/entrypoint.sh
+
