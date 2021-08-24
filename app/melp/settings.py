@@ -24,6 +24,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("ENVIRONMENT") == "local"
+DEBUG = True
 ALLOWED_HOSTS = [
     "*"] if DEBUG else os.getenv("ALLOWED_EXTERNAL_HOSTS", "").split(",")
 
