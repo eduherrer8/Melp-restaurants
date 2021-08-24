@@ -7,7 +7,7 @@ x-app:
   &app
   build:
     context: .
-    dockerfile: compose/Dockerfile
+    dockerfile: Dockerfile
   image: melp/api
   restart: always
   env_file:

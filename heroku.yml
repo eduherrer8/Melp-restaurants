@@ -1,6 +1,7 @@
 build:
   docker:
-    web: compose/Dockerfile
+    web: Dockerfile
+
 
 release:
   image: web

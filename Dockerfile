@@ -3,7 +3,7 @@ FROM python:3.8-slim-buster
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /usr/src/opt
-COPY ./requirements.txt .
+COPY requirements.txt .
 
 RUN apt-get update \
     && apt-get install --yes libgdal-dev netcat \
