@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Restaurant(models.Model):
     id = models.TextField(primary_key=True)
-    raiting = models.PositiveSmallIntegerField(
+    rating = models.PositiveSmallIntegerField(
         validators=[MaxValueValidator(4), MinValueValidator(0)]
     )
     name = models.TextField()
